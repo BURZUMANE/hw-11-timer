@@ -23,19 +23,19 @@ class CountdownTimer {
          * остатка % и делим его на количество миллисекунд в одном часе
          * (1000 * 60 * 60 = миллисекунды * минуты * секунды)
          */
-        const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const hours = String(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
 
         /*
          * Оставшиеся минуты: получаем оставшиеся минуты и делим их на количество
          * миллисекунд в одной минуте (1000 * 60 = миллисекунды * секунды)
          */
-        const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+        const mins = String(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
 
         /*
          * Оставшиеся секунды: получаем оставшиеся секунды и делим их на количество
          * миллисекунд в одной секунде (1000)
          */
-        const secs = Math.floor((time % (1000 * 60)) / 1000);
+        const secs = String(Math.floor((time % (1000 * 60)) / 1000)).padStart(2, '0');
 
         let timer = document.querySelector(this.selector);
         let daysDOM = timer.querySelector('span[data-value="days"]');
